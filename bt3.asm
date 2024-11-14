@@ -12,7 +12,7 @@
         mov ds,ax
         
         mov ah,9h         ;in ra tb1 voi ham 09/21h
-        mov dx,offset tb1
+        lea dx,tb1
         int 21h     
         
         mov ah,1h
@@ -22,35 +22,23 @@
         
         mov ah,9h
         lea dx,tb2      
-        int 21h
+        int 21h 
+        dec kytu 
         
-        mov dl,kytu
-        dec dl 
-        cmp dl,32
-        jl wrap_prev
-        jmp print_prev
- wrap_prev:
-        mov dl,126
- print_prev: 
         mov ah,2h
+        mov dl,kytu
         int 21h
+        add kytu,2
                  
                  
         mov ah,9h
         lea dx,tb3
-        int 21h
+        int 21h    
         
-        mov dl,kytu
-        inc dl
-        cmp dl,126
-        jg wrap_next
-        jmp print_next 
- wrap_next:
-        mov dl,32
- print_next:  
         mov ah,2h
-        int 21h  
-        
+        mov dl,kytu
+        int 21h
+       
         
         mov ah,4Ch
         int 21h

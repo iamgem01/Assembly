@@ -1,7 +1,7 @@
 .model small ;xay dung bo nho toi da 64kb cho data va ma
 .stack 100h   ;100h = 256b
 .data 
-      noti1 db 13,'Hay go 1 phim: $' 
+      noti1 db 'Hay go 1 phim: $' 
       noti2 db 13,10, 'Ky tu nhan duoc la: $'
       bien  db ?
 
